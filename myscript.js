@@ -11,7 +11,7 @@ import { Trend } from 'k6/metrics';
 	
 				myTrend.add(1);
 	
-  var url = 'http://localhost:8080/api/cars';
+  var url = 'http://3.142.83.193:7000/api/cars';
   var payload = JSON.stringify
   ({
     model: 'XC300',
@@ -27,7 +27,7 @@ import { Trend } from 'k6/metrics';
   })
   sleep(10);
    
-  var url1 = 'http://localhost:8080/api/cars/55';
+  var url1 = 'http://3.142.83.193:7000/api/cars/2';
   var payload1 = JSON.stringify
   ({
     model: 'XC302',  
@@ -44,11 +44,11 @@ import { Trend } from 'k6/metrics';
   sleep(10);
   
 
-  let res1 = http.get('http://localhost:8080/api/cars/10');
+  let res1 = http.get('http://3.142.83.193:7000/api/cars/3');
    check(res1, { 'status was 200': (r) => r.status == 200 });
   
   
-  let res = http.del('http://localhost:8080/api/cars/113');
+  let res = http.del('http://3.142.83.193:7000/api/cars/1');
   check(res, { 'status was 200': (r) => r.status == 200 });
 
 
