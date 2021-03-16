@@ -48,8 +48,8 @@ import { Trend } from 'k6/metrics';
    check(res1, { 'status was 200': (r) => r.status == 200 });
   
   
-  let res = http.del('http://3.142.83.193:7000/api/cars/5');
-  check(res, { 'status was 200': (r) => r.status == 200 });
+  http.del('http://3.142.83.193:7000/api/cars/5');
+  
 
 
 }
