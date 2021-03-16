@@ -4,7 +4,7 @@ import { Trend } from 'k6/metrics';
 
 	export let options = {
 		vus: 1,
-		iterations: 1,
+		iterations: 30,
 	};
 		let myTrend = new Trend('my_trend')
 			export default function () {
@@ -48,7 +48,7 @@ import { Trend } from 'k6/metrics';
    check(res1, { 'status was 200': (r) => r.status == 200 });
   
   
-  let res = http.del('http://3.142.83.193:7000/api/cars/1');
+  let res = http.del('http://3.142.83.193:7000/api/cars/5');
   check(res, { 'status was 200': (r) => r.status == 200 });
 
 
