@@ -2,7 +2,7 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { Trend } from 'k6/metrics';
 
-  const BASE_URL = 'http://3.142.83.193:7001/api/cars';
+  const BASE_URL = 'http://3.142.83.193:7002/api/cars';
 
 	export let options = {
 		vus: 1,
