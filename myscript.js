@@ -37,7 +37,7 @@ export default function () {
       'Content-Type': 'application/json',
     },
   };
-  check(http.put(`${BASE_URL}/55`, payload1, params1),
+  check(http.put(`${BASE_URL}/2`, payload1, params1),
   {
     'status is 200': (r) => r.status == 200,
   })
@@ -48,6 +48,6 @@ export default function () {
    check(res1, { 'status was 200': (r) => r.status == 200 });
   
   
- http.del(`${BASE_URL}/5`);
+
 
 }
