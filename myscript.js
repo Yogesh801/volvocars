@@ -48,7 +48,6 @@ export default function () {
    check(res1, { 'status was 200': (r) => r.status == 200 });
   
   
-  let res = http.del(`${BASE_URL}/15`);
-  check(res, { 'status was 200': (r) => r.status == 200 });
+ http.del(`${BASE_URL}/5`);
 
 }
