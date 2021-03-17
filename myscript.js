@@ -2,16 +2,17 @@ import http from 'k6/http';
 import { check, sleep } from 'k6';
 import { Trend } from 'k6/metrics';
 
+  const BASE_URL = 'http://3.142.83.193:7001/api/cars';
+
 	export let options = {
 		vus: 1,
-		iterations: 30,
+		iterations: 1,
 	};
-		let myTrend = new Trend('my_trend')
-			export default function () {
+  let myTrend = new Trend('my_trend')
+
+export default function () {
+	  myTrend.add(1);
 	
-				myTrend.add(1);
-	
-  var url = 'http://3.142.83.193:7000/api/cars';
   var payload = JSON.stringify
   ({
     model: 'XC300',
@@ -21,13 +22,12 @@ import { Trend } from 'k6/metrics';
       'Content-Type': 'application/json',
     },
   };
-  check(http.post(url, payload, params),
+  check(http.post(`${BASE_URL}`, payload, params),
   {
     'status is 200': (r) => r.status == 200,
   })
   sleep(10);
    
-  var url1 = 'http://3.142.83.193:7000/api/cars/2';
   var payload1 = JSON.stringify
   ({
     model: 'XC302',  
@@ -37,20 +37,18 @@ import { Trend } from 'k6/metrics';
       'Content-Type': 'application/json',
     },
   };
-  check(http.put(url1, payload1, params1),
+  check(http.put(`${BASE_URL}/55`, payload1, params1),
   {
     'status is 200': (r) => r.status == 200,
   })
   sleep(10);
   
 
-  let res1 = http.get('http://3.142.83.193:7000/api/cars/3');
+  let res1 = http.get(`${BASE_URL}/3`);
    check(res1, { 'status was 200': (r) => r.status == 200 });
   
   
-  http.del('http://3.142.83.193:7000/api/cars/5');
-  
-
+  let res = http.del(`${BASE_URL}/15`);
+  check(res, { 'status was 200': (r) => r.status == 200 });
 
 }
-
