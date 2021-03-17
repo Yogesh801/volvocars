@@ -6,7 +6,7 @@ import { Trend } from 'k6/metrics';
 
 	export let options = {
 		vus: 1,
-		iterations: 1,
+		iterations: 30,
 	};
   let myTrend = new Trend('my_trend')
 
